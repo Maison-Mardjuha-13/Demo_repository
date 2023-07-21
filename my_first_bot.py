@@ -74,7 +74,7 @@ Help = '''
 /show - показать задачи
 /del - удалить задачу
 '''
-token = "6023184308:AAHUOUG5OPu6SrmSXXKvqA1imJTPK68uVdM"
+token = 
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start', 'START', 'Start'])
