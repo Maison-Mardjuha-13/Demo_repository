@@ -1,10 +1,10 @@
-from aiogram import Bot, Dispatcher
-from aiogram.filters import Command
-from aiogram.types import Message, ContentType
-from aiogram import F
-from random import randint
 from math import floor
+from random import randint
+from aiogram import Bot, Dispatcher, F
+from aiogram.filters import Command
+from aiogram.types import Message
 from requests import get
+from environs import Env
 import save_script
 import prompts
 
@@ -18,9 +18,11 @@ def load_data():
     d = save_script.load_from_data()
     return d
 
+env = Env()
+env.read_env()
 
 difficults: dict = {'X': 69, 'A': 20, 'B': 15, 'C': 10, 'D': 5, 'E': 1}
-API_TOKEN: str = '6348992336:AAFYCy0mXyAyZebEA9D9LkybeiCCOvHd8jQ'
+API_TOKEN: str = str(env('BOT_TOKEN'))
 users: dict = dict(load_data())
 print(users)
 
